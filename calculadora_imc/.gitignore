@@ -8,8 +8,6 @@
 .buildlog/
 .history
 .svn/
-.vscode/
-primeiro_projeto/
 
 # IntelliJ related
 *.iml
@@ -31,6 +29,7 @@ primeiro_projeto/
 .pub-cache/
 .pub/
 /build/
+/test/
 
 # Web related
 lib/generated_plugin_registrant.dart
