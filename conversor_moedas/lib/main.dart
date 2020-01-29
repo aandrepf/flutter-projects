@@ -7,12 +7,8 @@ const request = 'https://api.hgbrasil.com/finance?format=JSON&key=a39115d6';
 
 void main() async {
   runApp(MaterialApp(
-    home: Home(),
-    theme: ThemeData(
-      hintColor: Colors.amber,
-      primaryColor: Colors.amber
-    )
-  ));
+      home: Home(),
+      theme: ThemeData(hintColor: Colors.amber, primaryColor: Colors.amber)));
 }
 
 Future<Map> getData() async {
@@ -34,17 +30,17 @@ class _HomeState extends State<Home> {
   double euro;
 
   void _realChanged(String text) {
-    if(text.isEmpty) {
+    if (text.isEmpty) {
       _clearAll();
       return;
     }
     double real = double.parse(text);
-    dolarController.text = (real/dollar).toStringAsFixed(2);
-    euroController.text = (real/euro).toStringAsFixed(2);
+    dolarController.text = (real / dollar).toStringAsFixed(2);
+    euroController.text = (real / euro).toStringAsFixed(2);
   }
 
   void _dolarChanged(String text) {
-    if(text.isEmpty) {
+    if (text.isEmpty) {
       _clearAll();
       return;
     }
@@ -54,7 +50,7 @@ class _HomeState extends State<Home> {
   }
 
   void _euroChanged(String text) {
-    if(text.isEmpty) {
+    if (text.isEmpty) {
       _clearAll();
       return;
     }
@@ -83,7 +79,13 @@ class _HomeState extends State<Home> {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none: // se não veio nada
-              break;
+              return Center(
+                child: Text(
+                  'Ocorreu algum erro inesperado!',
+                  style: TextStyle(color: Colors.amber, fontSize: 25.0),
+                  textAlign: TextAlign.center,
+                ),
+              );
             case ConnectionState.waiting: // em espera
               return Center(
                 child: Text(
@@ -102,7 +104,6 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-
                 // DEFINE OS VALORES DE COMPRA DO DOLAR E DO EURO PARA OS CALCULOS
                 dollar = snapshot.data['results']['currencies']['USD']['buy'];
                 euro = snapshot.data['results']['currencies']['EUR']['buy'];
@@ -112,13 +113,17 @@ class _HomeState extends State<Home> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      Icon(Icons.monetization_on, size: 150, color: Colors.amber),
+                      Icon(Icons.monetization_on,
+                          size: 150, color: Colors.amber),
                       Divider(),
-                      buildTextField('Reais', 'R\$ ', realController, _realChanged),
+                      buildTextField(
+                          'Reais', 'R\$ ', realController, _realChanged),
                       Divider(),
-                      buildTextField('Dolares', 'US\$ ', dolarController, _dolarChanged),
+                      buildTextField(
+                          'Dolares', 'US\$ ', dolarController, _dolarChanged),
                       Divider(),
-                      buildTextField('Euros', '€ ', euroController, _euroChanged),
+                      buildTextField(
+                          'Euros', '€ ', euroController, _euroChanged),
                     ],
                   ),
                 );
@@ -135,19 +140,20 @@ class _HomeState extends State<Home> {
  @param label = parametro do texto da label
  @param prefix = parametro com o prefixo do texto do campo 
 */
-Widget buildTextField(String label, String prefix, TextEditingController c, Function f) {
- return TextField(
-    keyboardType: TextInputType.numberWithOptions(decimal: true), // Para iOS exibir o botão de '.' no teclado
+Widget buildTextField(
+    String label, String prefix, TextEditingController c, Function f) {
+  return TextField(
+    keyboardType: TextInputType.numberWithOptions(
+        decimal: true), // Para iOS exibir o botão de '.' no teclado
     controller: c,
     decoration: InputDecoration(
-      labelText: label,
-      labelStyle: TextStyle(color: Colors.amber),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.amber),
-      ),
-      prefixText: prefix
-    ),
+        labelText: label,
+        labelStyle: TextStyle(color: Colors.amber),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.amber),
+        ),
+        prefixText: prefix),
     style: TextStyle(color: Colors.amber, fontSize: 20.0),
     onChanged: f,
-  );  
+  );
 }
