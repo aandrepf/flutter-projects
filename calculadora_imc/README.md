@@ -1,6 +1,6 @@
 # Calculadora IMC
 
-![Calculadora IMC com Flutter](https://github.com/aandrepf/flutter-projects/blob/master/assets/calculadora_imc.png=200px)
+![Calculadora IMC com Flutter](https://github.com/aandrepf/flutter-projects/blob/master/assets/calculadora_imc.png)
 
 um projeto desenvolvido em Flutter para estudos.
 
