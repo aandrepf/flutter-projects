@@ -1,4 +1,4 @@
-package br.org.apfwebdev.primeiro_projeto
+package br.com.dcode.buscador_gifs
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
