@@ -149,3 +149,16 @@ actions: <Widget>[ //actions da AppBar
   )
 ],
 ```
+
+## Carregando imagens suavidadas (FadeIn)
+
+Para carregar as imagens com mais fluidez usamos um plugin **transparent_image** do flutter.
+
+```dart
+FadeInImage.memoryNetwork( // carrega com efeito de fadeIn
+  placeholder: kTransparentImage, // carrega transparente primeiro
+  image: snapshot.data['data'][index]['images']['fixed_height']['url'], // gif
+  height: 300.0,
+  fit: BoxFit.cover,
+),
+```
