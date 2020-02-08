@@ -6,18 +6,19 @@ Um app de Flutter consiste em uma interface com 2 botões onde ao se clicar nos 
 
 Recursos Utilizados:
 
--Stateful e Statless
--Column e Row
--Text e TextStyle
--FontStyle e FontWay
--FlatButton
--Image
--Stack
--Padding
+- Stateful e Statless
+- Column e Row
+- Text e TextStyle
+- FontStyle e FontWay
+- FlatButton
+- Image
+- Stack
+- Padding
 
 ## Colunas e Textos
 
 **Column** = um widget que permite colocar um conjunto de widgets de forma vertical, um sobre o outro.
+
 **Text** = widget que trabalha com textos. Ele tem um construtor *TextStyle* que conseguimos estilizar o texto.
 
 ```dart
@@ -32,6 +33,7 @@ Column(
 ## Botões, Linhs e Hierarquia
 
 **FlatButton** = widget de botão que não possui um fundo.
+
 **Row** = widget que permite colocar um conjunto de widgets de forma horizontal, um ao lado do outro.
 
 ```dart
